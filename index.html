@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revive Doctor Ads Library — 20 Active Creatives</title>
+<style>
+:root { --bg:#0e1117; --card:#161b22; --line:#30363d; --text:#e6edf3; --muted:#7d8590; --accent:#58a6ff; --red:#f85149; --green:#3fb950; --gold:#d29922; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',sans-serif; line-height:1.5; }
+.head { padding:36px 24px 28px; border-bottom:1px solid var(--line); background:linear-gradient(180deg,#0d1117,#161b22); }
+.head .wrap { max-width:1400px; margin:0 auto; }
+.head h1 { margin:0 0 8px; font-size:32px; font-weight:800; letter-spacing:-0.02em; }
+.head .sub { color:var(--muted); font-size:15px; }
+.head .stats { margin-top:20px; display:flex; gap:24px; flex-wrap:wrap; font-size:13px; }
+.head .stat b { color:var(--text); font-size:18px; font-weight:700; }
+.head .stat span { color:var(--muted); display:block; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; margin-top:2px; }
+.filters { padding:20px 24px; border-bottom:1px solid var(--line); background:#0d1117; position:sticky; top:0; z-index:10; }
+.filters .wrap { max-width:1400px; margin:0 auto; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+.filter-btn { background:transparent; color:var(--muted); border:1px solid var(--line); padding:7px 14px; border-radius:6px; font-size:13px; cursor:pointer; transition:all .15s; }
+.filter-btn:hover, .filter-btn.active { color:var(--text); border-color:var(--accent); background:rgba(88,166,255,0.08); }
+.grid { max-width:1400px; margin:0 auto; padding:28px 24px 60px; display:grid; grid-template-columns:repeat(auto-fill,minmax(380px,1fr)); gap:22px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; }
+.card .num { position:absolute; top:10px; left:10px; background:rgba(0,0,0,0.7); color:#fff; padding:4px 9px; border-radius:6px; font-size:12px; font-weight:700; z-index:2; }
+.card .media { position:relative; aspect-ratio:1/1; background:#000; cursor:pointer; overflow:hidden; }
+.card .media img { width:100%; height:100%; object-fit:cover; transition:opacity .2s; }
+.card .media video { width:100%; height:100%; object-fit:cover; display:none; }
+.card .media.playing img { display:none; }
+.card .media.playing video { display:block; }
+.card .play-icon { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:rgba(0,0,0,0.75); border-radius:50%; width:60px; height:60px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:24px; transition:transform .15s; pointer-events:none; }
+.card:hover .play-icon { transform:translate(-50%,-50%) scale(1.1); }
+.card.playing .play-icon { display:none; }
+.card .body { padding:16px 18px 18px; display:flex; flex-direction:column; gap:10px; flex:1; }
+.card .persona { display:flex; align-items:center; gap:8px; font-size:13px; }
+.card .persona .badge { background:#21262d; padding:3px 8px; border-radius:4px; font-size:11px; font-weight:600; color:var(--gold); }
+.card .persona .status { font-size:11px; padding:2px 7px; border-radius:4px; }
+.card .status.active { background:rgba(63,185,80,0.15); color:var(--green); }
+.card h3 { margin:0; font-size:16px; line-height:1.3; font-weight:700; color:var(--text); }
+.card .meta { display:flex; gap:14px; font-size:11px; color:var(--muted); flex-wrap:wrap; }
+.card .meta span b { color:var(--text); font-weight:600; }
+.card .copy { font-size:13px; line-height:1.55; color:#c9d1d9; max-height:170px; overflow:hidden; position:relative; }
+.card .copy.expanded { max-height:none; }
+.card .copy::after { content:''; position:absolute; bottom:0; left:0; right:0; height:50px; background:linear-gradient(to bottom,transparent,var(--card)); pointer-events:none; }
+.card .copy.expanded::after { display:none; }
+.card .copy-toggle { color:var(--accent); font-size:12px; background:none; border:none; padding:0; cursor:pointer; align-self:flex-start; }
+.card .actions { display:flex; gap:8px; margin-top:auto; padding-top:8px; }
+.card .actions a { flex:1; text-align:center; padding:8px 12px; border-radius:6px; font-size:12px; font-weight:600; text-decoration:none; transition:all .15s; }
+.card .actions .view-landing { background:#21262d; color:var(--text); border:1px solid var(--line); }
+.card .actions .view-landing:hover { border-color:var(--accent); }
+.card .actions .download { background:var(--accent); color:#fff; }
+.card .actions .download:hover { background:#4493ec; }
+@media (max-width:600px) {
+  .head h1 { font-size:24px; }
+  .grid { grid-template-columns:1fr; padding:18px 14px; }
+  .head { padding:24px 16px 20px; }
+}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <div class="wrap">
+    <h1>Revive Doctor Ads — Active Creative Library</h1>
+    <div class="sub">Dr. Michael Ashford, MD + Dr. Ian Smith, MD persona network · all currently running on Meta · pulled from TrendTrack 2026-05-24</div>
+    <div class="stats">
+      <div class="stat"><b>20</b><span>Active ad variants</span></div>
+      <div class="stat"><b>13</b><span>Unique hooks</span></div>
+      <div class="stat"><b>2</b><span>Doctor personas</span></div>
+      <div class="stat"><b>2</b><span>Landing pages (advertorial / listicle)</span></div>
+      <div class="stat"><b>5</b><span>Countries: US AU CA GB NZ</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="filters">
+  <div class="wrap">
+    <button class="filter-btn active" data-f="all">All (20)</button>
+    <button class="filter-btn" data-f="ashford">Dr. Ashford</button>
+    <button class="filter-btn" data-f="iansmith">Dr. Ian Smith</button>
+    <button class="filter-btn" data-f="long">Long-form (3+ min)</button>
+    <button class="filter-btn" data-f="short">Short-form (≤1:30)</button>
+    <button class="filter-btn" data-f="advertorial">→ advertorial-page</button>
+    <button class="filter-btn" data-f="listicle">→ listicle-page</button>
+  </div>
+</div>
+
+<main class="grid" id="grid"></main>
+
+<script>
+const ADS = [
+  { n:'01', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'long', duration:'3:28', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', headline:'Kegels Miss the Muscle by 2.5 Inches', desc:`Kegels miss the bulbocavernosus by 2.5 inches — a urologist just explained on podcast why every rep you've ever done missed the muscle that actually controls your erections.`, copy:`Kegels stop 3 inches above the muscle responsible for your ED — and a urologist just explained on podcast exactly why months of daily reps produced nothing.\n\nThe most common thing he hears from men who come to him about their ED: "I've been doing kegels. I've been consistent. Nothing has changed."\n\nHis answer is always the same.\n\nOf course nothing changed. Kegels cannot physically reach the muscle responsible for this.\n\nThese are disciplined men. They did their research. They found that pelvic floor training helps with erections — which is true — and they built a daily habit around it. Months of consistent effort. Feeling the contraction working. Assuming it must be helping even when nothing improved.\n\nAnd all the while the muscle that actually controls whether they stay hard has been sitting three inches below every rep they've done — completely untouched, weakening further every month.\n\nThe bulbocavernosus sits three inches deep. A kegel contraction generates force at the surface and dissipates before reaching three inches. Physics, not technique.\n\nRevive delivers targeted vibration pulses engineered to penetrate exactly three inches — directly stimulating the bulbocavernosus. 3,600 contractions per 20-minute session. Fully clothed. On your couch.\n\nWeek 1 — Morning erections return.\nWeek 2 — Sustained firmness. No fading.\nWeek 3 — Partners notice.\nWeek 4 — Most patients reduce or stop their prescription.\n\nRevive is 50% off right now — $59.99 down from $119.99. 90-day money-back guarantee. Full refund. No questions.\n\nYou've been doing it 2.5 inches too shallow. This reaches the right depth.` },
+  { n:'02', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'long', duration:'3:24', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', headline:'Six Months of Kegels. Wrong Muscle.', desc:`I did kegels every day for six months. Then I found out I was squeezing the completely wrong muscle the entire time.`, copy:`I did kegels every day for six months. My ED didn't improve at all. Then I found out I was squeezing the completely wrong muscle the entire time.\n\nLook — I did everything right. I researched it. Six months. Never missed a day. And nothing changed.\n\nI thought I was broken.\n\nThen I found out why kegels weren't working — and honestly I was furious.\n\nKegels work the surface layer of your pelvic floor. The muscle that actually controls whether you stay hard is called the bulbocavernosus. It sits three inches deep. Three inches below where kegels stop.\n\nEvery rep I did — months of them — was strengthening muscles that had nothing to do with my erections.\n\nI found Revive. Targeted vibration pulses that penetrate exactly three inches deep — directly stimulating the bulbocavernosus. 3,600 contractions in 20 minutes. Sitting on the couch. Fully clothed.\n\nMonths of kegels: zero contractions where it counted.\nOne session: 3,600 where it counts.\n\nWeek 1 — Morning wood came back. First time in over a year.\nWeek 2 — Stayed hard the whole time.\nWeek 3 — She noticed.\nWeek 4 — Many men find they no longer need pharmaceutical support.\n\nRevive is 50% off right now — $59.99 down from $119.99. 90-day money-back guarantee.\n\nYou weren't doing kegels wrong. You were doing them at the wrong depth.` },
+  { n:'03', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:31', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', headline:'The Muscle Group Most Men Never Train', desc:`There's one muscle group most men never train — and it's one of the most important ones for staying strong and active as you age.`, copy:`There's one muscle group most men never train — and it's one of the most important ones for staying strong and active as you age.\n\nYou probably train your legs. Maybe your core. The pelvic floor? Most men have never given it a single thought.\n\nIt supports your bladder. Stabilizes your core during lifts and rotational movement. Connects to the deep core system that protects your lower back. Like every other muscle, it weakens without use — and most men's pelvic floors haven't been worked in decades.\n\nKegels are the standard advice. Most men skip them, forget them, or aren't sure they're contracting the right muscles. And manual kegels mainly engage the surface layer.\n\nRevive is built specifically for that. A pelvic floor training device that uses targeted vibration to help engage pelvic floor muscles — including ones difficult to reach with manual kegels alone. 20-minute session. Fully clothed.\n\nThink of it like a foam roller for a muscle group you can't easily reach yourself.\n\nRevive — $59.99 right now. 90-day money-back guarantee.\n\nTrain the muscles you usually skip.` },
+  { n:'04', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'long', duration:'3:22', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', headline:'Wrong Muscle for 6 Months (alt landing)', desc:`Men doing kegels for ED are training the wrong muscle — the one that actually controls erections sits three inches deeper and kegels physically can't reach it.`, copy:`Same hook as #02 — alternate landing page test (listicle variant). Full body identical to: "I did kegels every day for six months. My ED didn't improve at all..."` },
+  { n:'05', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:05', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', headline:'Kegels for ED Is the Wrong Advice', desc:`Men have been doing kegels for ED for decades — a urologist explains why it has never once fixed the root cause and what actually reaches it.`, copy:`Kegels for ED is the most confidently wrong advice in men's health. A urologist explains what actually works.\n\nHere is what he sees in his clinic every week. A man who did the research. Built a daily habit. Stayed consistent for months. Came to the clinic because nothing improved.\n\nThe answer: nothing. The exercise simply cannot reach the muscle responsible for this. Not because of technique. Not because of effort. Because of where the muscle actually sits.\n\nThe bulbocavernosus sits three inches deep. During arousal it compresses the venous drainage around the erectile tissue and locks blood under hydraulic pressure.\n\nRevive delivers the targeted stimulus that reaches three inches. Vibration pulses engineered to penetrate exactly three inches. 3,600 contractions per 20-minute session.\n\nKegels train the 20% at the surface. Revive trains the 80% at depth.\n\nWeek 1 — Morning erections return.\nWeek 2 — Sustained firmness.\nWeek 3 — Partners notice.\nWeek 4 — Many patients reduce or discontinue their prescription.\n\n4.8 stars. Over 10,000 men. $59.99 — was $119.99. 90-day money back guarantee.` },
+  { n:'06', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:29', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', headline:'Recovery Plan Left Out 1 Muscle', desc:`Men who never recover their erections after prostate surgery aren't failing their recovery — their recovery plan left out the one muscle that determines whether they get it back.`, copy:`Men who never recover their erections after prostate surgery aren't failing their recovery — their recovery plan failed them. And a urologist just proved it on podcast.\n\nAn erection requires two mechanisms. Nerve recovery and blood delivery — that's mechanism one. Every post-surgical protocol focuses here.\n\nMechanism two: blood retention. The bulbocavernosus — a muscle three inches deep in the pelvic floor — must contract during arousal to compress the venous drainage and lock blood under hydraulic pressure. Without it, blood arrives and drains immediately.\n\nProstate surgery directly atrophies this muscle through surgical trauma and weeks of enforced inactivity.\n\nThe recovery plan fixed delivery. Nobody fixed retention.\n\nRevive fixes retention. Targeted vibration pulses to exactly three inches — directly stimulating the bulbocavernosus.\n\n"Prostatectomy two years ago. Eighteen months of pills that barely worked. By week three with Revive I stayed hard without the pill for the first time since surgery."\n\nRevive is 50% off right now — $59.99 down from $119.99. 90-day money-back guarantee.` },
+  { n:'07', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:30', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', headline:'Post-Prostate Recovery Missing Muscle (alt)', desc:`Same hook as #06 — alternate landing page (advertorial variant).`, copy:`Same body as #06. Tested against the advertorial-page landing instead of listicle.` },
+  { n:'08', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:06', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', headline:'Your Doctor Said Stress. Half the Answer.', desc:`Your Doctor Said It Was Stress. That's Not Wrong. But It's Not The Whole Answer Either.`, copy:`When men come to me with ED — the most common thing their doctor told them is that it's stress.\n\nAnd I understand why doctors say it. Stress does affect everything.\n\nIt's not a wrong explanation. But it's an incomplete one.\n\nStress never explains why the ED gets worse over time even when the stress is managed. Why the pills become less effective. Why the dose keeps going up.\n\nStress doesn't cause dose escalation. A weakening muscle does.\n\nThe bulbocavernosus sits three inches deep. Pills compensate. They don't fix.\n\nRevive uses targeted vibration pulses to penetrate exactly three inches deep — directly training the bulbocavernosus. 3,600 contractions per 20-minute session. Fully clothed.\n\nWeek one — morning erections return.\nWeek two — stays hard the whole time.\nWeek three — she notices.\nWeek four — threw the pills in the bin.\n\nSixty dollars. 90-day money back guarantee. 55% off right now.\n\nIf stress was the real cause — managing stress would have fixed it. It didn't. This will.` },
+  { n:'09', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:07', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', headline:'Your Doctor Blamed Your Age. Wrong.', desc:`Your Doctor Blamed Your Age. That Was The Wrong Answer. Here's What's Actually Causing Your ED.`, copy:`I want to correct something men with ED are told constantly. That it's age.\n\nIt's not.\n\nAge is not what causes erectile dysfunction — it's an untrained muscle that causes it.\n\nAge is irreversible. A weak muscle can be trained.\n\nThe bulbocavernosus sits three inches deep. Kegels work the superficial pelvic floor layer. Manual exercises physically cannot reach it.\n\nRevive uses targeted vibration pulses to penetrate exactly three inches. 3,600 contractions per twenty-minute session.\n\nWeek one — morning erections return.\nWeek four — threw the pills in the bin.\n\nSixty dollars. 90-day money back guarantee. 55% off.\n\nIf you've been told it's age — you've been given the wrong answer.` },
+  { n:'10', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:06', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', headline:'Stress is incomplete (alt landing)', desc:`Your Doctor Said It Was Stress. That's Not Wrong. But It's Not The Whole Answer Either.`, copy:`Same hook as #08 — alternate landing page test (listicle).` },
+  { n:'11', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'0:51', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', headline:'10,000 Men Already Fixed Their ED', desc:`10,000 Men Already Fixed Their ED. Most Doctors Still Don't Know How.`, copy:`10,000 men have already fixed their erectile dysfunction. Not managed it. Fixed it.\n\nAnd most of them found the answer the same way — late at night, reading something their doctor had never mentioned.\n\nAn erection isn't just about blood flow. That's what pills address. But blood flow is only phase one. Phase two is pressure retention.\n\nThere is a muscle — three inches deep — called the bulbocavernosus. If it's weak, blood flows in and immediately flows back out.\n\nKegels can't reach three inches.\n\nRevive — Targeted vibration pulse technology. Penetrates exactly three inches deep. 3,600 contractions per session.\n\nWeek one — morning erections return.\nWeek four — the pills go in the bin.\n\nSixty dollars. 90-day money back. 55% off.\n\n10,000 men already know this works.` },
+  { n:'12', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:13', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', headline:'Two Prescriptions in Three Years', desc:`I was on my second prescription in three years. The dose kept going up.`, copy:`I was on my second prescription in three years. The first one worked fine for about eight months. Then it stopped being enough.\n\nMy doctor increased the dose. That worked for a while too. Then that stopped being enough.\n\nThat was the conversation that sent me down a rabbit hole at 1 AM on a Tuesday that changed everything.\n\nHe called it the two-phase problem. Phase one is blood flow. Pills address this phase. Phase two is pressure retention — the bulbocavernosus, three inches deep, that contracts during arousal and traps blood.\n\nPills push more blood in. They don't train the muscle.\n\nAs the muscle gets weaker — and it does get weaker if you never train it — the compensation stops being enough. So the dose goes up.\n\nRevive. Targeted vibration pulse technology. Designed to penetrate exactly three inches deep.\n\nWeek one — morning erections came back.\nWeek four — I threw the pills away. Because I didn't need them.\n\nIf your dose has gone up even once — read how this works before your next refill.` },
+  { n:'13', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:05', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', headline:'Kegels Wrong Advice (alt landing)', desc:`Same hook as #05 — alternate landing page test.`, copy:`Same body as #05. Tested against listicle.` },
+  { n:'14', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:27', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', headline:'Nobody Ever Taught You This', desc:`Nobody Ever Taught Men How Erections Actually Work. That Gap In Your Education Is Why Nothing Has Fixed Your ED.`, copy:`Nobody taught you this. Not in school. Not by a doctor. Not by anyone.\n\nAnd that gap in your education has been costing you for years.\n\nAn erection has two phases. Phase one — blood flow. This is the only phase pills address.\n\nPhase two — pressure retention. The bulbocavernosus, three inches deep. Its job is to contract during arousal and trap that blood inside.\n\nWithout that contraction — blood flows in and immediately flows back out.\n\nKegels strengthen the superficial pelvic floor layer. The bulbocavernosus sits three inches deep. Manual exercises physically cannot reach it.\n\nRevive uses targeted vibration pulses to penetrate exactly three inches deep.\n\nWeek one — morning erections return.\nWeek four — threw the pills in the bin.\n\nSixty dollars. 90-day money back. 55% off.\n\nNobody taught you this. Now you know.` },
+  { n:'15', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:16', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', headline:'Doctor Gave You Half the Answer', desc:`Your Doctor Gave You Half The Answer. Here's The Half That Actually Fixes ED.`, copy:`If you've been prescribed ED medication — your doctor addressed one half of the problem.\n\nHere's the half they didn't address.\n\nPhase one — blood flow. Pills address this. Supplements. Pumps.\n\nPhase two — pressure retention. The bulbocavernosus, three inches deep. If it's weak — blood flows in and immediately flows back out.\n\nYour doctor never mentioned this muscle. Not because they didn't care. Because pills address phase one. And most doctors stop there.\n\nThe muscle can be trained. Not with kegels — manual exercises physically cannot reach three inches deep.\n\nRevive uses targeted vibration pulses to penetrate exactly three inches deep.\n\nWeek one — morning erections return.\nWeek four — the pills go in the bin.\n\nSixty dollars. 90-day money back. 55% off.\n\nYour doctor gave you half the answer. This is the other half.` },
+  { n:'16', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:05', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', headline:'Kegels Wrong Advice (3rd landing test)', desc:`3rd version of the kegels-wrong-advice hook — testing on advertorial-page-jan-19.`, copy:`Same body as #05/#13. This is the same creative tested against a third landing combination.` },
+  { n:'17', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:32', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', headline:'Post-Prostate Recovery (3rd test)', desc:`3rd version of post-prostate hook — testing variant.`, copy:`Same body as #06/#07.` },
+  { n:'18', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:32', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', headline:'Post-Prostate Recovery (4th test)', desc:`4th version of post-prostate hook.`, copy:`Same body as #06/#07/#17.` },
+  { n:'19', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:08', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', headline:'Your Doctor Blamed Your Age (alt)', desc:`Alt version of the age hook.`, copy:`Same body as #09.` },
+  { n:'20', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'4:17', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', headline:'ED Pill Worked. Now Barely Does.', desc:`You've been on ED pills for years and nobody told you they were making the root cause worse the entire time — a urologist explains what your prescription has been hiding.`, copy:`The ED pill worked great at first. Now it barely works. And nobody told you this would happen.\n\nYou started on half a tablet. Now you're on the maximum dose. You time everything down to the hour.\n\nThe pill didn't fail you. You were never told what the pill can't do — and what it can't do has been getting worse every single month you've been on it.\n\nMechanism one: blood delivery. This is the entire pharmaceutical mechanism. Everything your pill does.\n\nMechanism two: blood retention. The bulbocavernosus — a muscle three inches deep. Your prescription has never once addressed mechanism two.\n\nNot Viagra. Not Cialis. Not Tadalafil. Every ED prescription ever written addressed mechanism one and left mechanism two completely untouched.\n\nThis is not tolerance. This is progressive muscular deterioration that no prescription has ever touched.\n\nRevive trains the muscle the pill was working around. Targeted vibration pulses to exactly three inches deep.\n\nWeek 1 — Morning erections without the pill.\nWeek 4 — Most patients stop the prescription entirely.\n\n4.8 stars. Over 10,000 men. $59.99 — was $119.99. 55% off.\n\nThe dose going up every year was never tolerance. It was a muscle getting weaker that nobody trained.` },
+];
+
+const grid = document.getElementById('grid');
+ADS.forEach(ad => {
+  const card = document.createElement('article');
+  card.className = 'card';
+  card.dataset.doctor = ad.doctor;
+  card.dataset.kind = ad.kind;
+  card.dataset.landing = ad.landing;
+  card.innerHTML = `
+    <div class="num">#${ad.n}</div>
+    <div class="media" data-n="${ad.n}">
+      <img src="thumbs/${ad.n}.jpg" alt="Ad ${ad.n}">
+      <video preload="none" controls playsinline><source src="ads/${ad.n}.mp4" type="video/mp4"></video>
+      <div class="play-icon">▶</div>
+    </div>
+    <div class="body">
+      <div class="persona">
+        <span class="badge">${ad.persona}</span>
+        <span class="status active">● Active</span>
+      </div>
+      <h3>${ad.headline}</h3>
+      <div class="meta">
+        <span><b>${ad.duration}</b> · ${ad.kind === 'long' ? 'Long-form' : 'Short-form'}</span>
+        <span>→ <b>/${ad.landing}-page</b></span>
+      </div>
+      <div class="copy"><p style="margin:0 0 8px;font-weight:600;color:#e6edf3">${ad.desc}</p>${ad.copy.split('\n\n').map(p => `<p style="margin:0 0 8px">${p.replace(/\n/g,'<br>')}</p>`).join('')}</div>
+      <button class="copy-toggle">Expand copy ↓</button>
+      <div class="actions">
+        <a class="view-landing" href="${ad.landingUrl}" target="_blank">View landing →</a>
+        <a class="download" href="ads/${ad.n}.mp4" download>Download .mp4</a>
+      </div>
+    </div>
+  `;
+  grid.appendChild(card);
+});
+
+// Wire up video play on thumbnail click
+document.querySelectorAll('.media').forEach(m => {
+  m.addEventListener('click', () => {
+    const v = m.querySelector('video');
+    if (m.classList.contains('playing')) {
+      v.pause();
+      m.classList.remove('playing');
+    } else {
+      m.classList.add('playing');
+      v.play();
+    }
+  });
+});
+
+// Wire up copy expand toggles
+document.querySelectorAll('.copy-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const copy = btn.previousElementSibling;
+    copy.classList.toggle('expanded');
+    btn.textContent = copy.classList.contains('expanded') ? 'Collapse copy ↑' : 'Expand copy ↓';
+  });
+});
+
+// Wire up filter buttons
+document.querySelectorAll('.filter-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    const f = b.dataset.f;
+    document.querySelectorAll('.card').forEach(c => {
+      const show = f === 'all' || c.dataset.doctor === f || c.dataset.kind === f || c.dataset.landing === f;
+      c.style.display = show ? '' : 'none';
+    });
+  });
+});
+</script>
+
+</body>
+</html>
