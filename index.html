@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Revive Doctor Ads Library — 20 Active Creatives</title>
+<title>Revive Doctor Ads Library — 19 Active Creatives</title>
 <style>
-:root { --bg:#0e1117; --card:#161b22; --line:#30363d; --text:#e6edf3; --muted:#7d8590; --accent:#58a6ff; --red:#f85149; --green:#3fb950; --gold:#d29922; --label:#f0b341; }
+:root { --bg:#0e1117; --card:#161b22; --line:#30363d; --text:#e6edf3; --muted:#7d8590; --accent:#58a6ff; --green:#3fb950; --gold:#d29922; --label:#f0b341; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',sans-serif; line-height:1.5; }
 .head { padding:36px 24px 28px; border-bottom:1px solid var(--line); background:linear-gradient(180deg,#0d1117,#161b22); }
@@ -23,7 +23,7 @@ body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-sys
 .card { background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; position:relative; }
 .card .num { position:absolute; top:10px; left:10px; background:rgba(0,0,0,0.7); color:#fff; padding:4px 9px; border-radius:6px; font-size:12px; font-weight:700; z-index:2; }
 .card .media { position:relative; aspect-ratio:1/1; background:#000; cursor:pointer; overflow:hidden; }
-.card .media img { width:100%; height:100%; object-fit:cover; transition:opacity .2s; }
+.card .media img { width:100%; height:100%; object-fit:cover; }
 .card .media video { width:100%; height:100%; object-fit:cover; display:none; }
 .card .media.playing img { display:none; }
 .card .media.playing video { display:block; }
@@ -47,8 +47,10 @@ body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-sys
 .field.primary-text .field-value::after { content:''; position:absolute; bottom:0; left:0; right:0; height:50px; background:linear-gradient(to bottom,transparent,var(--card)); pointer-events:none; }
 .field.primary-text .field-value.expanded::after { display:none; }
 .field.primary-text .copy-toggle { color:var(--accent); font-size:12px; background:none; border:none; padding:4px 0 0; cursor:pointer; }
-.field.description .field-value { color:#b3bdc7; font-style:italic; font-size:13px; }
 .field.landing .field-value { font-size:12px; color:var(--accent); word-break:break-all; }
+.field.no-headline { border-left-color:#444; opacity:0.7; }
+.field.no-headline .field-label { color:var(--muted); }
+.field.no-headline .field-value { color:var(--muted); font-style:italic; font-size:12.5px; }
 .actions { display:flex; gap:8px; margin-top:6px; }
 .actions a { flex:1; text-align:center; padding:9px 12px; border-radius:6px; font-size:12.5px; font-weight:600; text-decoration:none; transition:all .15s; }
 .actions .view-landing { background:#21262d; color:var(--text); border:1px solid var(--line); }
@@ -67,23 +69,22 @@ body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-sys
 <header class="head">
   <div class="wrap">
     <h1>Revive Doctor Ads — Active Creative Library</h1>
-    <div class="sub">Dr. Michael Ashford, MD + Dr. Ian Smith, MD persona network · all currently running on Meta · pulled from TrendTrack 2026-05-24</div>
+    <div class="sub">Dr. Michael Ashford, MD + Dr. Ian Smith, MD persona network · all currently running on Meta · headlines from Ad Library 2026-05-24</div>
     <div class="stats">
-      <div class="stat"><b>20</b><span>Active ad variants</span></div>
-      <div class="stat"><b>13</b><span>Unique hooks</span></div>
+      <div class="stat"><b>19</b><span>Active ad variants</span></div>
       <div class="stat"><b>2</b><span>Doctor personas</span></div>
       <div class="stat"><b>2</b><span>Landing pages</span></div>
       <div class="stat"><b>5</b><span>Countries: US AU CA GB NZ</span></div>
     </div>
     <div class="sub" style="margin-top:14px;font-size:13px">
-      <strong style="color:var(--label)">⬛ How to use:</strong> each card shows 3 Meta-upload fields → <strong style="color:var(--label)">Headline</strong>, <strong style="color:var(--label)">Primary Text</strong>, <strong style="color:var(--label)">Description</strong>. Hit the <em>Copy</em> button next to any field, paste straight into Meta Ads Manager.
+      <strong style="color:var(--label)">⬛ How to use:</strong> two Meta-upload fields per card → <strong style="color:var(--label)">Headline</strong> (the bold line under the URL in Meta Ad Library — some ads don't have one, shown grayed out) + <strong style="color:var(--label)">Primary Text</strong> (full body copy). Click <em>Copy</em> next to any field to copy it.
     </div>
   </div>
 </header>
 
 <div class="filters">
   <div class="wrap">
-    <button class="filter-btn active" data-f="all">All (20)</button>
+    <button class="filter-btn active" data-f="all">All (19)</button>
     <button class="filter-btn" data-f="ashford">Dr. Ashford</button>
     <button class="filter-btn" data-f="iansmith">Dr. Ian Smith</button>
     <button class="filter-btn" data-f="long">Long-form (3+ min)</button>
@@ -96,7 +97,7 @@ body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-sys
 <main class="grid" id="grid"></main>
 
 <script>
-const KEGELS_2_5 = `Kegels stop 3 inches above the muscle responsible for your ED — and a urologist just explained on podcast exactly why months of daily reps produced nothing.
+const PT_KEGELS_2_5 = `Kegels stop 3 inches above the muscle responsible for your ED — and a urologist just explained on podcast exactly why months of daily reps produced nothing.
 
 The most common thing he hears from men who come to him about their ED: "I've been doing kegels. I've been consistent. Nothing has changed."
 
@@ -110,7 +111,9 @@ And all the while the muscle that actually controls whether they stay hard has b
 
 That is not a failure of effort. That is a failure of information.
 
-The pelvic floor has layers. Kegel exercises engage the superficial layer. But not the muscle responsible for erectile function.
+Here's the anatomy that explains every wasted rep.
+
+The pelvic floor has layers. Kegel exercises engage the superficial layer — the outermost ring you can consciously feel and contract. Real muscles. Real contractions. Worth training for some things. But not the muscle responsible for erectile function.
 
 The bulbocavernosus sits three inches deep. During arousal it compresses the venous drainage around the erectile tissue and locks blood under hydraulic pressure. That pressure is what keeps you hard. Not blood arriving — blood being held.
 
@@ -118,22 +121,28 @@ A kegel contraction generates force at the surface and dissipates before reachin
 
 Kegels miss the bulbocavernosus by 2.5 inches. Every. Single. Rep.
 
-Revive delivers it. Vibration pulses engineered to penetrate exactly three inches — directly stimulating the bulbocavernosus. 3,600 contractions per 20-minute session. Fully clothed. On your couch.
+The intervention required is targeted stimulus at exactly three inches depth.
 
-Week 1 — Morning erections return.
-Week 2 — Sustained firmness. No fading.
-Week 3 — Partners notice.
+Revive delivers it.
+
+Vibration pulses engineered to penetrate exactly three inches — directly stimulating the bulbocavernosus. 3,600 contractions per 20-minute session. Fully clothed. On your couch. The muscle that kegels miss by 2.5 inches receives direct targeted training for the first time.
+
+Week 1 — Morning erections return. Right muscle finally stimulated.
+Week 2 — Sustained firmness. No fading. Retention functioning at a level kegels never produced.
+Week 3 — Partners notice. Months of kegel progress arrives in weeks.
 Week 4 — Most patients reduce or stop their prescription.
 
-"Eight months of kegels. Nothing changed. Three weeks on Revive and I was staying hard the entire time."
+"Eight months of kegels. Nothing changed for my erections. Three weeks on Revive and I was staying hard the entire time. Eight months versus three weeks. That's the difference between 2.5 inches and three inches."
 
 Revive is 50% off right now — $59.99 down from $119.99. 90-day money-back guarantee. Full refund. No questions.
 
-You've been doing it 2.5 inches too shallow. This reaches the right depth.
+You haven't been doing it wrong.
+You've been doing it 2.5 inches too shallow.
+This reaches the right depth.
 
 👇 Tap below. See how it works.`;
 
-const SIX_MONTHS = `I did kegels every day for six months. My ED didn't improve at all. Then I found out I was squeezing the completely wrong muscle the entire time.
+const PT_SIX_MONTHS = `I did kegels every day for six months. My ED didn't improve at all. Then I found out I was squeezing the completely wrong muscle the entire time.
 
 Look — I did everything right. I researched it. Found out the pelvic floor controls erections. Started kegels. Did them every morning, every night. Six months. Never missed a day.
 
@@ -143,33 +152,43 @@ Still losing it halfway through. Still that same moment of panic every single ti
 
 I thought I was broken. Like this was just where I was at now.
 
-And then I found out why kegels weren't working — and honestly I was furious.
+And then I found out why kegels weren't working — and honestly I was furious. Because the answer is so specific and nobody ever says it.
 
-Kegels work. They genuinely do something. But they work on the surface layer of your pelvic floor — the muscles you can feel from the outside. The muscle that actually controls whether you stay hard is called the bulbocavernosus. And it sits three inches deep.
+Here's what nobody tells you.
 
-So every rep I did — months of them — was strengthening muscles that had nothing to do with my erections.
+Kegels work. They genuinely do something. But they work on the surface layer of your pelvic floor — the muscles you can feel from the outside when you squeeze. The muscle that actually controls whether you stay hard is called the bulbocavernosus. And it sits three inches deep. Three inches below where kegels stop.
+
+So every rep I did — months of them — was strengthening muscles that had nothing to do with my erections. The muscle that actually mattered had never been touched once.
+
+An erection needs blood getting in and blood staying in. The bulbocavernosus is the muscle that clamps down during arousal and traps blood under hydraulic pressure. That pressure is what keeps you hard. When this muscle is weak — blood flows in and drains straight back out. You fade. You lose it.
 
 Kegels can't reach three inches. The force from a manual contraction physically dissipates before it gets that deep. Not a technique problem. Physics.
 
-I found Revive. Targeted vibration pulses that penetrate exactly three inches deep — directly stimulating the bulbocavernosus. 3,600 contractions in 20 minutes. Sitting on the couch. Fully clothed.
+Every article, every forum post, every doctor who said "do your kegels" was sending men to train the wrong muscle. Not because they were lying. Because there was no way to reach the right one. Until now.
+
+I found Revive. Targeted vibration pulses that penetrate exactly three inches deep — directly stimulating the bulbocavernosus. The muscle kegels never touched. 3,600 contractions in 20 minutes. Sitting on the couch. Fully clothed.
 
 Months of kegels: zero contractions where it counted.
 One session: 3,600 where it counts.
 
 Week 1 — Morning wood came back. First time in over a year.
 Week 2 — Stayed hard the whole time. No fading. No panic.
-Week 3 — She noticed.
+Week 3 — She noticed. Something came back that we'd both quietly given up on.
 Week 4 — Many men find they no longer need pharmaceutical support.
 
 "Six weeks in. My wife initiated three times last week. That hasn't happened in two years. Yeah. It works." ⭐⭐⭐⭐⭐
 
-Revive is 50% off right now — $59.99 down from $119.99. 90-day money-back guarantee.
+"Three weeks on this and I'm waking up hard, staying hard. The kegel advice I followed for months did nothing. This did everything." ⭐⭐⭐⭐⭐
 
-You weren't doing kegels wrong. You were doing them at the wrong depth. This reaches the right depth.
+Revive is 50% off right now — $59.99 down from $119.99. 90-day money-back guarantee. Full refund. No questions.
+
+You weren't doing kegels wrong.
+You were doing them at the wrong depth.
+This reaches the right depth.
 
 👇 Tap below. See how it works.`;
 
-const UNTRAINED_MUSCLE = `There's one muscle group most men never train — and it's one of the most important ones for staying strong and active as you age.
+const PT_UNTRAINED_MUSCLE = `There's one muscle group most men never train — and it's one of the most important ones for staying strong and active as you age.
 
 You probably train your legs. Maybe your core. Maybe your back. The pelvic floor? Most men have never given it a single thought.
 
@@ -191,7 +210,7 @@ Train the muscles you usually skip.
 
 👇 Tap below to learn more.`;
 
-const KEGELS_WRONG_ADVICE = `Kegels for ED is the most confidently wrong advice in men's health. A urologist explains what actually works.
+const PT_KEGELS_WRONG_ADVICE = `Kegels for ED is the most confidently wrong advice in men's health. A urologist explains what actually works.
 
 Here is what he sees in his clinic every week.
 
@@ -203,102 +222,167 @@ The answer: nothing.
 
 The exercise simply cannot reach the muscle responsible for this. Not because of technique. Not because of effort. Because of where the muscle actually sits.
 
-The pelvic floor is not one flat layer. It has depth. Kegels engage the outermost surface layer. But the muscle responsible for whether you stay hard is not in the outer layer.
+The pelvic floor is not one flat layer. It has depth. Kegels engage the outermost surface layer — real muscles, real contractions, worth training for some things. But the muscle responsible for whether you stay hard is not in the outer layer.
 
 The bulbocavernosus sits three inches deep.
 
-During arousal it compresses the venous drainage around the erectile tissue and locks blood under hydraulic pressure. That pressure is what keeps you hard.
+During arousal it compresses the venous drainage around the erectile tissue and locks blood under hydraulic pressure. That pressure is what keeps you hard. Not blood arriving — blood being trapped and held under pressure.
 
-A kegel contraction generates force at the surface and dissipates before reaching three inches. This is physics, not technique.
+A kegel contraction generates force at the surface and dissipates before reaching three inches of pelvic tissue. This is physics, not technique. Every kegel ever done has trained the muscles above this line. The muscle below it — the one that actually controls this — has received nothing.
 
-Revive delivers the targeted stimulus that reaches three inches. Vibration pulses engineered to penetrate exactly three inches — past the surface layer, directly to the bulbocavernosus. 3,600 contractions per 20-minute session. Fully clothed. At home.
+Revive delivers the targeted stimulus that reaches three inches.
 
-Kegels train the 20% at the surface. Revive trains the 80% at depth.
+Vibration pulses engineered to penetrate exactly three inches — past the surface layer, directly to the bulbocavernosus. 3,600 contractions per 20-minute session. Fully clothed. At home. Not a replacement for kegels. The completion of what kegels start.
 
-Week 1 — Morning erections return.
-Week 2 — Sustained firmness.
-Week 3 — Partners notice.
+Kegels train the 20% at the surface. Revive trains the 80% at depth — the 80% that determines the outcome.
+
+Week 1 — Morning erections return. The bulbocavernosus responding to direct stimulus for the first time.
+Week 2 — Sustained firmness. No fading. Retention at a level kegels alone never produced.
+Week 3 — Partners notice. Spontaneity returns.
 Week 4 — Many patients reduce or discontinue their prescription.
 
-"Eight months of kegels every morning. Nothing changed. Three weeks on Revive — staying hard the entire time." ⭐⭐⭐⭐⭐
+"Eight months of kegels every morning. Correct technique. Consistent reps. Nothing changed. Three weeks on Revive — staying hard the entire time. Eight months versus three weeks. That's the difference between the surface and three inches deep." ⭐⭐⭐⭐⭐
 
-4.8 stars. Over 10,000 men. $59.99 — was $119.99. 50% off today only. 90-day money back guarantee.
+4.8 stars. Over 10,000 men.
+$59.99 — was $119.99. 50% off today only.
+90-day money back guarantee. No questions.
 
-Kegels were the right instinct. Three inches too shallow. This trains the right depth.
+Kegels were the right instinct.
+Three inches too shallow.
+This trains the right depth.
 
 👇 Tap below. See how it works.`;
 
-const POST_PROSTATE = `Men who never recover their erections after prostate surgery aren't failing their recovery — their recovery plan failed them. And a urologist just proved it on podcast.
+const PT_POST_PROSTATE = `Men who never recover their erections after prostate surgery aren't failing their recovery — their recovery plan failed them. And a urologist just proved it on podcast.
 
 The conversation he dreads most in his clinic is the one with a man who did everything right. Survived the surgery. Completed recovery. Took the pills for months. Was patient.
 
 And still can't get hard.
 
+Because he knows what happened. And he knows that nothing in that man's recovery ever addressed it.
+
 Here's what standard post-surgical care misses entirely.
 
-An erection requires two mechanisms. Nerve recovery and blood delivery — that's mechanism one. Every post-surgical protocol focuses here.
+An erection requires two mechanisms. Nerve recovery and blood delivery — that's mechanism one. Every post-surgical protocol focuses here. The pills support this. The waiting supports this. Every appointment monitors this.
 
 Mechanism two: blood retention. The bulbocavernosus — a muscle three inches deep in the pelvic floor — must contract during arousal to compress the venous drainage and lock blood under hydraulic pressure. Without it, blood arrives and drains immediately regardless of how well nerve recovery progresses.
 
-Prostate surgery directly atrophies this muscle through surgical trauma and weeks of enforced inactivity. It weakens dramatically. And while nerve recovery gets monitored and supported — this muscle receives nothing.
+Prostate surgery directly atrophies this muscle through surgical trauma and weeks of enforced inactivity. It weakens dramatically. And while nerve recovery gets monitored and supported — this muscle receives nothing. No rehabilitation. No protocol. No training.
 
-The pills push more blood in to compensate. But if the retention muscle isn't compressing the drainage — blood leaks straight out.
+The pills push more blood in to compensate. But if the retention muscle isn't compressing the drainage — blood leaks straight out regardless of delivery volume.
 
-That's why the pills hit a ceiling. The recovery plan fixed delivery. Nobody fixed retention.
+That's why the pills hit a ceiling. That's why months of waiting produces nothing.
 
-Revive fixes retention. Targeted vibration pulses to exactly three inches — directly stimulating the bulbocavernosus. 3,600 contractions per 20-minute session. Fully clothed. No clinic. No referral.
+The recovery plan fixed delivery. Nobody fixed retention.
 
-Week 1 — Morning erections return.
-Week 2 — Sustained firmness.
-Week 3 — Partners notice.
+Revive fixes retention.
+
+Targeted vibration pulses to exactly three inches — directly stimulating the bulbocavernosus. The rehabilitation that should have been part of recovery from day one. 3,600 contractions per 20-minute session. Fully clothed. No clinic. No referral.
+
+Week 1 — Morning erections return. The bulbocavernosus responding to direct stimulus for the first time since surgery.
+Week 2 — Sustained firmness. Retention functioning independently of the pill.
+Week 3 — Partners notice. Spontaneity returns.
 Week 4 — Most patients reduce or stop the prescription entirely.
 
-"Prostatectomy two years ago. Eighteen months of pills that barely worked. By week three with Revive I stayed hard without the pill for the first time since surgery. My wife cried."
+Not because nerve recovery accelerated. Because the retention mechanism surgery left untrained was finally trained.
 
-Revive is 50% off right now — $59.99 down from $119.99. 90-day money-back guarantee.
+"Prostatectomy two years ago. Eighteen months of pills that barely worked. By week three with Revive I stayed hard without the pill for the first time since surgery. My wife cried. I hadn't seen her cry happy in two years."
 
-You haven't failed your recovery. Your recovery plan left out the one muscle that determines the outcome. This trains it.
+Revive is 50% off right now — $59.99 down from $119.99. 90-day money-back guarantee. Full refund. No questions.
+
+You haven't failed your recovery.
+Your recovery plan left out the one muscle that determines the outcome.
+This trains it.
 
 👇 Tap below. See how it works.`;
 
-const STRESS = `When men come to me with ED — the most common thing their doctor told them is that it's stress.
+const PT_STRESS = `When men come to me with ED — the most common thing their doctor told them is that it's stress.
 
-And I understand why doctors say it. Stress does affect everything.
+And I understand why doctors say it.
 
-It's not a wrong explanation. But it's an incomplete one.
+Stress does affect everything.
+
+It's not a wrong explanation.
+
+But it's an incomplete one.
 
 Here's what stress never explains.
 
-Why the ED gets worse over time even when the stress is managed. Why the pills become less effective. Why the dose keeps going up.
+Why the ED gets worse over time even when the stress is managed.
 
-Stress doesn't cause dose escalation. A weakening muscle does. ❌
+Why the pills become less effective.
 
-There is a muscle — three inches deep in the pelvic floor — called the bulbocavernosus. Its job is to contract during arousal and trap blood inside the erectile tissue.
+Why the dose keeps going up.
+
+Stress doesn't cause dose escalation.
+
+A weakening muscle does. ❌
+
+There is a muscle — three inches deep in the pelvic floor — called the bulbocavernosus.
+
+Its job is to contract during arousal and trap blood inside the erectile tissue.
+
+Maintain the hydraulic pressure.
 
 If it's weak — you have ED.
 
-Pills compensate for that weakness. They don't fix it.
+Pills compensate for that weakness.
 
-As the muscle gets weaker the compensation becomes less effective. The dose goes up. The reliability goes down.
+They don't fix it.
+
+As the muscle gets weaker the compensation becomes less effective.
+
+The dose goes up.
+
+The window gets shorter.
+
+The reliability goes down.
+
+And every time a man asks his doctor why — the answer is still stress.
 
 It was never just stress.
 
-Kegels won't reach it either. The bulbocavernosus sits three inches deep. Manual exercises cannot reach it.
+Kegels won't reach it either.
 
-A device called Revive uses targeted vibration pulses to penetrate exactly three inches deep. Directly training the bulbocavernosus. 3,600 contractions per twenty-minute session. Fully clothed. At home. Twenty minutes.
+The bulbocavernosus sits three inches deep.
+
+Manual exercises cannot reach it.
+
+That's why months of kegels alongside the prescription changed nothing.
+
+A device called Revive uses targeted vibration pulses to penetrate exactly three inches deep.
+
+Directly training the bulbocavernosus.
+
+3,600 contractions per twenty-minute session.
+
+Fully clothed. At home. Twenty minutes.
 
 Week one — morning erections return. 💪
-Week two — stays hard the whole time.
-Week three — she notices. 💙
+
+Week two — stays hard the whole time. No anxiety. No losing it halfway through.
+
+Week three — she notices. Reaches for you the way she used to. The distance quietly closing. 💙
+
 Week four — threw the pills in the bin. ✅
 
-Sixty dollars. 90-day money back. 55% off right now.
+Sixty dollars.
 
-If stress was the real cause — managing stress would have fixed it. It didn't. This will.
+Ninety-day money back guarantee — no questions asked.
+
+55% off right now.
+
+Less than a single month of a prescription built on an incomplete answer.
+
+If stress was the real cause — managing stress would have fixed it.
+
+It didn't.
+
+This will.
 
 Link is below. 👇`;
 
-const AGE = `I want to correct something men with ED are told constantly.
+const PT_AGE = `I want to correct something men with ED are told constantly.
 
 That it's age.
 
@@ -308,279 +392,686 @@ Age is not what causes erectile dysfunction — it's an untrained muscle that ca
 
 And there is a very important difference between those two things.
 
-Age is irreversible. A weak muscle can be trained.
+Age is irreversible.
 
-There is a muscle — three inches deep in the pelvic floor — called the bulbocavernosus. Its job during arousal is to contract and trap blood inside the erectile tissue.
+A weak muscle can be trained.
 
-If this muscle is weak — you have ED. Not because of age. Because this muscle was never trained.
+Here's what most men are never told.
 
-Pills don't train it. They compensate for it.
+There is a muscle — three inches deep in the pelvic floor — called the bulbocavernosus.
 
-As the muscle weakens further the compensation becomes less effective. The dose goes up.
+Its job during arousal is to contract and trap blood inside the erectile tissue.
+
+Maintain the hydraulic pressure that keeps an erection firm.
+
+If this muscle is weak — you have ED.
+
+Not because of age.
+
+Because this muscle was never trained.
+
+Pills don't train it.
+
+They compensate for it — flooding more blood in than the weak muscle can let escape.
+
+As the muscle weakens further the compensation becomes less effective.
+
+The dose goes up.
+
+The reliability goes down.
+
+And every time a man asks his doctor why — the answer is still age.
 
 It was never age.
 
-Kegels won't fix it either. Kegels work the superficial pelvic floor layer. The bulbocavernosus sits three inches deep. Manual exercises physically cannot reach it.
+Kegels won't fix it either.
 
-A device called Revive uses targeted vibration pulses to penetrate exactly three inches deep. Directly stimulating the bulbocavernosus. 3,600 contractions per twenty-minute session. Fully clothed. At home. Twenty minutes.
+Kegels work the superficial pelvic floor layer.
+
+The bulbocavernosus sits three inches deep.
+
+Manual exercises physically cannot reach it.
+
+That's why months of kegels changed nothing.
+
+A device called Revive uses targeted vibration pulses to penetrate exactly three inches deep.
+
+Directly stimulating the bulbocavernosus.
+
+3,600 contractions per twenty-minute session.
+
+Fully clothed. At home. Twenty minutes.
 
 Week one — morning erections return. 💪
-Week two — stays hard the whole time.
-Week three — she notices.
+
+Week two — stays hard the whole time. No anxiety. No losing it halfway.
+
+Week three — she notices. Reaches for you the way she used to.
+
 Week four — threw the pills in the bin. ✅
 
-Sixty dollars. 90-day money back. 55% off right now.
+Sixty dollars.
 
-If you've been told it's age — you've been given the wrong answer. The right answer is a trainable muscle that nobody told you to train.
+Ninety-day money back guarantee — no questions asked.
+
+55% off right now.
+
+Less than a single month of a prescription that was compensating for a problem that was always fixable.
+
+If you've been told it's age — you've been given the wrong answer.
+
+The right answer is a trainable muscle that nobody told you to train.
 
 Link is below. 👇`;
 
-const TEN_K = `10,000 men have already fixed their erectile dysfunction.
+const PT_TEN_K = `10,000 men have already fixed their erectile dysfunction.
 
-Not managed it. Fixed it.
+Not managed it.
+
+Fixed it.
 
 And most of them found the answer the same way — late at night, reading something their doctor had never mentioned.
 
-An erection isn't just about blood flow. That's what pills address. But blood flow is only phase one.
+Here's what they know.
+
+An erection isn't just about blood flow.
+
+That's what everyone tells you.
+
+That's what pills address.
+
+But blood flow is only phase one.
 
 Phase two is pressure retention.
 
-There is a muscle — three inches deep in the pelvic floor — called the bulbocavernosus. Its job during arousal is to contract and trap that blood inside.
+There is a muscle — three inches deep in the pelvic floor — called the bulbocavernosus.
+
+Its job during arousal is to contract and trap that blood inside.
+
+Maintain the hydraulic pressure that keeps an erection firm.
 
 If it's weak — blood flows in and immediately flows back out.
 
-This is why pills stop working over time. They push more blood in to compensate for a weak muscle. But the muscle stays weak. The dose goes up.
+It doesn't matter how aroused you are.
 
-This is also why kegels don't work. Kegels strengthen the superficial pelvic floor layer. The bulbocavernosus sits three inches deep. Manual exercises physically cannot reach it.
+It doesn't matter how much blood gets in.
 
-The 10,000 men who fixed their ED found a device called Revive. Targeted vibration pulse technology. Penetrates exactly three inches deep. Directly stimulating the bulbocavernosus.
+The pressure can't hold.
 
-3,600 contractions per twenty-minute session. Fully clothed. At home. Twenty minutes.
+This is why pills stop working over time.
+
+They push more blood in to compensate for a weak muscle.
+
+But the muscle stays weak.
+
+The dose goes up.
+
+The reliability goes down.
+
+And nobody explains why.
+
+This is also why kegels don't work.
+
+Kegels strengthen the superficial pelvic floor layer.
+
+The bulbocavernosus sits three inches deep.
+
+Manual exercises physically cannot reach it.
+
+Men do kegels for months and wonder why nothing changes.
+
+Now you know why.
+
+The 10,000 men who fixed their ED found a device called Revive.
+
+Targeted vibration pulse technology.
+
+Penetrates exactly three inches deep.
+
+Directly stimulating the bulbocavernosus.
+
+3,600 contractions per twenty-minute session.
+
+Fully clothed. At home. Twenty minutes.
 
 Week one — morning erections return.
+
 Week four — the pills go in the bin.
 
-Sixty dollars. 90-day money back. 55% off right now.
+Sixty dollars.
+
+Ninety-day money back guarantee — no questions asked.
+
+Less than a single month of a prescription.
+
+55% off right now.
 
 10,000 men already know this works.
 
+The question is how long you wait before you find out too.
+
 Link is below. 👇`;
 
-const SECOND_RX = `I was on my second prescription in three years.
+const PT_SECOND_RX = `I was on my second prescription in three years.
 
-The first one worked fine for about eight months. Then it stopped being enough. So my doctor increased the dose. That worked for a while too. Then that stopped being enough.
+The first one worked fine for about eight months.
 
-And I remember sitting in his office asking him — why does this keep happening? He said it was normal. Said the body adjusts.
+Then it stopped being enough.
+
+So my doctor increased the dose.
+
+That worked for a while too.
+
+Then that stopped being enough.
+
+And I remember sitting in his office asking him — why does this keep happening?
+
+He said it was normal.
+
+Said the body adjusts.
+
+Said we'd find the right level eventually.
 
 I walked out with a higher dose and zero answers.
 
 That was the conversation that sent me down a rabbit hole at 1 AM on a Tuesday that changed everything.
 
+---
+
 I'd been reading about a doctor — a men's health specialist — who'd been talking about something nobody had ever explained to me in fifteen years of dealing with this.
 
 He called it the two-phase problem.
 
-Phase one is blood flow. Pills address this phase.
+Phase one is blood flow.
 
-Phase two is pressure retention. This is the phase nobody talks about. There is a muscle — three inches deep — called the bulbocavernosus. Without that contraction, blood flows in and immediately flows back out.
+Getting blood into the erectile tissue.
 
-Pills push more blood in. That's it. They don't train the muscle.
+Pills address this phase.
 
-As the muscle gets weaker — and it does get weaker if you never train it — the compensation stops being enough. So the dose goes up.
+Pumps address this phase.
 
-The doctor was talking about a device called Revive. Targeted vibration pulse technology. Designed to penetrate exactly three inches deep — the exact depth of the bulbocavernosus.
+Half the supplements on the market address this phase.
 
-3,600 contractions per twenty-minute session. Progressive muscle development. Not compensation. Training.
+This is the phase every doctor talks about.
 
-I was skeptical. But I ordered it. 90-day money back guarantee. $59.99.
+---
 
-Week one — morning erections came back. First time in nearly two years.
-Week two — different during sex. Stayed harder. Didn't lose it halfway through.
-Week three — my wife reached for me. The way she used to.
-Week four — I threw the pills away. Because I didn't need them.
+Phase two is pressure retention.
+
+This is the phase nobody talks about.
+
+There is a muscle — sitting three inches deep in the pelvic floor — called the bulbocavernosus.
+
+Its job during arousal is to contract and trap blood inside the erectile tissue.
+
+Maintain the hydraulic pressure.
+
+Without that contraction — blood flows in and immediately flows back out.
+
+It doesn't matter how much blood gets in.
+
+If the muscle isn't contracting, it leaves.
+
+---
+
+Pills push more blood in.
+
+That's it.
+
+That's all they do.
+
+They don't train the muscle.
+
+They don't strengthen the contraction.
+
+They compensate for it by flooding the system with more blood than the weak muscle can let escape.
+
+But as the muscle gets weaker — and it does get weaker if you never train it — the compensation stops being enough.
+
+So the dose goes up.
+
+And eventually the higher dose stops being enough too.
+
+---
+
+This is why men end up in their doctor's office every eighteen months asking why nothing is working the way it used to.
+
+Not because the pills are failing.
+
+Because they were never fixing anything.
+
+They were buying time.
+
+---
+
+I read that and sat back in my chair at 1:17 in the morning and felt something I hadn't felt in two years.
+
+Clarity.
+
+Not hope — I'd had hope before.
+
+Clarity.
+
+A real explanation for something I'd been told was just aging.
+
+Just the body adjusting.
+
+Just something to manage.
+
+---
+
+The doctor was talking about a device called Revive.
+
+Targeted vibration pulse technology.
+
+Designed to penetrate exactly three inches deep — the exact depth of the bulbocavernosus.
+
+3,600 contractions per twenty-minute session.
+
+Progressive muscle development.
+
+Not compensation.
+
+Training.
+
+---
+
+I was skeptical.
+
+Not a little skeptical — properly skeptical.
+
+I'd tried kegels for four months straight.
+
+Nothing.
+
+I'd spent more money on supplements than I want to admit.
+
+Nothing.
+
+I'd accepted the pills as just a permanent part of my life.
+
+---
+
+But this was different.
+
+This explained why the kegels hadn't worked.
+
+Kegels work the superficial pelvic floor layer.
+
+The bulbocavernosus sits three inches deep.
+
+Manual exercises physically cannot reach it.
+
+I'd been doing the right thing in the wrong place for four months.
+
+---
+
+I ordered it.
+
+Ninety-day money back guarantee.
+
+Fifty-nine dollars and ninety-nine cents.
+
+Less than a single month of my prescription.
+
+---
+
+Week one — morning erections came back.
+
+I hadn't had a reliable morning erection in nearly two years.
+
+I didn't say anything to my wife.
+
+I didn't want to get ahead of myself.
+
+But I noticed.
+
+---
+
+Week two — different during sex.
+
+Stayed harder.
+
+Didn't lose it halfway through.
+
+The anxiety that had been sitting in my chest every single time for two years — quieter.
+
+Not gone yet.
+
+But quieter.
+
+---
+
+Week three — my wife said something.
+
+She didn't say it directly.
+
+She just reached for me.
+
+The way she used to.
+
+Before all of this.
+
+---
+
+Week four — I threw the pills away.
+
+Not because someone told me to.
+
+Because I didn't need them.
+
+Getting hard on my own.
+
+Naturally.
+
+The way it's supposed to work.
+
+---
+
+My doctor never mentioned this muscle.
+
+Never mentioned phase two.
+
+Never mentioned that the dose going up wasn't normal — it was a signal that the real problem was getting worse.
+
+I don't know if he didn't know or just didn't think to say it.
+
+Either way — I wish someone had told me three years ago.
+
+---
 
 If your dose has gone up even once — read how this works before your next refill.
 
 Link is below. 👇`;
 
-const NOBODY_TAUGHT = `Nobody taught you this.
+const PT_NOBODY_TAUGHT = `Nobody taught you this.
 
-Not in school. Not by a doctor. Not by anyone.
+Not in school.
+
+Not by a doctor.
+
+Not by anyone.
 
 And that gap in your education has been costing you for years.
 
+Here's what you were never taught about how an erection actually works.
+
 There are two phases.
 
-Phase one — blood flow. This is the only phase pills address. This is the only phase your doctor has ever treated.
+Phase one — blood flow.
 
-Phase two — pressure retention. There is a muscle — three inches deep in the pelvic floor — called the bulbocavernosus. Its job during arousal is to contract and trap that blood inside.
+Getting blood into the erectile tissue.
 
-Without that contraction — blood flows in and immediately flows back out. You cannot maintain an erection.
+This is the only phase most people ever talk about.
 
-This is why pills stop working over time. They push more blood in. But the muscle stays weak. The dose goes up.
+This is the only phase pills address.
 
-This is also why kegels don't work. Kegels strengthen the superficial pelvic floor layer. The bulbocavernosus sits three inches deep. Manual exercises physically cannot reach it.
+This is the only phase your doctor has ever treated.
 
-A device called Revive uses targeted vibration pulses to penetrate exactly three inches deep. Directly training the muscle responsible for maintaining erections.
+Phase two — pressure retention.
 
-3,600 contractions per twenty-minute session. Fully clothed. At home. Twenty minutes.
+There is a muscle — three inches deep in the pelvic floor — called the bulbocavernosus.
+
+Its job during arousal is to contract and trap that blood inside.
+
+Maintain the hydraulic pressure that keeps an erection firm.
+
+Without that contraction — blood flows in and immediately flows back out.
+
+You cannot maintain an erection.
+
+Not because of blood flow.
+
+Because of a muscle that was never trained.
+
+This is why pills stop working over time.
+
+They push more blood in to compensate for the weak muscle.
+
+But the muscle stays weak.
+
+The dose goes up.
+
+The reliability goes down.
+
+This is also why kegels don't work.
+
+Kegels strengthen the superficial pelvic floor layer.
+
+The bulbocavernosus sits three inches deep.
+
+Manual exercises physically cannot reach it.
+
+Men do kegels for months and wonder why nothing changes.
+
+This is why nothing changed.
+
+A device called Revive uses targeted vibration pulses to penetrate exactly three inches deep.
+
+Directly training the muscle responsible for maintaining erections.
+
+3,600 contractions per twenty-minute session.
+
+Fully clothed. At home. Twenty minutes.
 
 Week one — morning erections return. 💪
-Week two — stays hard the whole time.
-Week three — she notices.
+
+Week two — stays hard the whole time. No anxiety. No losing it halfway through.
+
+Week three — she notices. Reaches for you the way she used to.
+
 Week four — threw the pills in the bin. ✅
 
-Sixty dollars. 90-day money back. 55% off right now.
+Sixty dollars.
 
-Nobody taught you this. Now you know. And now you can do something about it.
+Ninety-day money back guarantee — no questions asked.
+
+55% off right now.
+
+Less than a single month of a prescription that was only ever treating half the problem.
+
+Nobody taught you this.
+
+Now you know.
+
+And now you can do something about it.
 
 Link is below. 👇`;
 
-const HALF_ANSWER = `If you've been prescribed ED medication — your doctor addressed one half of the problem.
+const PT_HALF_ANSWER = `If you've been prescribed ED medication — your doctor addressed one half of the problem.
 
 Here's the half they didn't address.
 
-Phase one — blood flow. Pills address this phase. Supplements. Pumps. This is the only phase most doctors ever talk about.
+An erection has two phases.
 
-Phase two — pressure retention. There is a muscle sitting three inches deep in the pelvic floor. Called the bulbocavernosus. Its job is to contract during arousal and trap that blood inside.
+Phase one — blood flow.
+
+Getting blood into the erectile tissue.
+
+Pills address this phase.
+
+Supplements address this phase.
+
+Pumps address this phase.
+
+This is the only phase most doctors ever talk about.
+
+Phase two — pressure retention.
+
+There is a muscle sitting three inches deep in the pelvic floor.
+
+Called the bulbocavernosus.
+
+Its job is to contract during arousal and trap that blood inside.
+
+Maintain the hydraulic pressure that keeps an erection firm.
 
 If it's weak — blood flows in and immediately flows back out.
 
-Your doctor never mentioned this muscle. Not because they didn't care. Because pills address phase one. And most doctors stop there.
+ED gets worse.
 
-This is why the pills work for a while and then stop working as well. This is why the dose keeps escalating.
+The dose goes up.
 
-The muscle can be trained. Not with kegels — manual exercises physically cannot reach three inches deep.
+And your doctor never mentioned this muscle.
 
-A device called Revive uses targeted vibration pulses to penetrate exactly three inches deep. Directly stimulating and training the bulbocavernosus.
+Not because they didn't care.
 
-3,600 contractions per twenty-minute session. Fully clothed. At home. Twenty minutes.
+Because pills address phase one.
+
+And most doctors stop there.
+
+This is why the pills work for a while and then stop working as well.
+
+This is why the dose keeps escalating.
+
+This is why men spend years on prescriptions that manage the problem without ever fixing it.
+
+The muscle can be trained.
+
+Not with kegels — kegels work the superficial pelvic floor layer.
+
+The bulbocavernosus sits three inches deep.
+
+Manual exercises physically cannot reach it.
+
+That's why months of kegels changed nothing.
+
+A device called Revive uses targeted vibration pulses to penetrate exactly three inches deep.
+
+Directly stimulating and training the bulbocavernosus.
+
+3,600 contractions per twenty-minute session.
+
+Fully clothed. At home. Twenty minutes.
 
 Week one — morning erections return. 💪
-Week two — stays hard the whole time.
-Week three — she notices.
+
+Week two — stays hard the whole time. No anxiety. No losing it halfway through.
+
+Week three — she notices. Reaches for you the way she used to.
+
 Week four — the pills go in the bin. ✅
 
-Sixty dollars. 90-day money back. 55% off right now.
+Sixty dollars.
 
-Your doctor gave you half the answer. This is the other half.
+Ninety-day money back guarantee — no questions asked.
+
+55% off right now.
+
+Less than a single month of a prescription.
+
+Your doctor gave you half the answer.
+
+This is the other half.
 
 Link is below. 👇`;
 
-const ED_PILL_STOPPED = `The ED pill worked great at first. Now it barely works. And nobody told you this would happen.
+const PT_ED_PILL_STOPPED = `The ED pill worked great at first. Now it barely works. And nobody told you this would happen.
 
 You started on half a tablet. Now you're on the maximum dose. You time everything down to the hour. You cut alcohol on the days you take it. You've built your entire intimate life around a pharmaceutical window that keeps getting narrower.
 
 And every year your doctor just renews the prescription.
 
+Here's what he never said out loud.
+
 The pill didn't fail you. You were never told what the pill can't do — and what it can't do has been getting worse every single month you've been on it.
 
-An erection depends on two mechanisms.
+An erection depends on two mechanisms. Mechanism one: blood delivery. Arterial dilation, blood flows in, nitric oxide signalling. This is the entire pharmaceutical mechanism. Everything your pill does. Everything your prescription addresses. It forces more blood in. That is the beginning and end of what it was designed to do.
 
-Mechanism one: blood delivery. This is the entire pharmaceutical mechanism. Everything your pill does.
+Mechanism two: blood retention. The bulbocavernosus — a muscle three inches deep in your pelvic floor — contracts during arousal to compress the venous drainage and lock blood under hydraulic pressure. That locked pressure is what keeps you hard. Not blood arriving. Blood being held.
 
-Mechanism two: blood retention. The bulbocavernosus — a muscle three inches deep — contracts during arousal to compress the venous drainage and lock blood under hydraulic pressure. That locked pressure is what keeps you hard.
+Your prescription has never once addressed mechanism two.
 
-Your prescription has never once addressed mechanism two. Not Viagra. Not Cialis. Not Tadalafil. Every ED prescription ever written addressed mechanism one and left mechanism two completely untouched.
+Not Viagra. Not Cialis. Not Tadalafil. Not any gummy or supplement on the market. Every ED prescription ever written addressed mechanism one and left mechanism two completely untouched.
 
-The bulbocavernosus weakens without targeted training. While the pill manages delivery, retention deteriorates silently underneath it. The pill compensates by forcing more blood in than the weakening muscle can lose. It works. Until it needs more.
+Here's what that means for every year you've been on medication.
+
+The bulbocavernosus weakens without targeted training. While the pill manages delivery, retention deteriorates silently underneath it. The muscle that should be locking blood in gets weaker. The pill compensates by forcing more blood in than the weakening muscle can lose. It works. Until it needs more.
 
 This is not tolerance. This is progressive muscular deterioration that no prescription has ever touched.
 
-Revive trains the muscle the pill was working around. Targeted vibration pulses to exactly three inches deep. 3,600 contractions per 20-minute session. Fully clothed. At home. No prescription.
+The pill was never designed to fix this. It was designed to work around it. And every year it works around it, the thing it's working around gets worse.
 
-Week 1 — Morning erections without the pill.
-Week 2 — Full sustained firmness.
-Week 3 — Spontaneity returns.
-Week 4 — Most patients stop the prescription entirely.
+Revive trains the muscle the pill was working around.
 
-4.8 stars. Over 10,000 men. $59.99 — was $119.99. 55% off today only. 90-day money-back guarantee.
+Targeted vibration pulses to exactly three inches deep. 3,600 contractions per 20-minute session. Fully clothed. At home. No prescription. The bulbocavernosus receives direct targeted training for the first time. It strengthens. Retention restores. The compensation becomes unnecessary.
 
-The dose going up every year was never tolerance. It was a muscle getting weaker that nobody trained. Now train it.
+Week 1 — Morning erections without the pill. Right muscle finally responding.
+Week 2 — Full sustained firmness. No fading. Retention functioning independently.
+Week 3 — No pharmaceutical window. No timing. Spontaneity returns.
+Week 4 — Most patients stop the prescription entirely. The dose that kept climbing stops because the muscle it was covering for is now trained.
+
+The escalation stops because the cause of it was finally addressed.
+
+4.8 stars. Over 10,000 men.
+$59.99 — was $119.99. 55% off today only.
+90-day money-back guarantee. Full refund. No questions.
+
+The dose going up every year was never tolerance.
+It was a muscle getting weaker that nobody trained.
+Now train it.
 
 👇 Tap below. See how it works.`;
 
+// Each ad: headline = EXACT text from user's paste between HTTPS:// and URL line. If no headline shown in paste → null
 const ADS = [
-  { n:'01', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'long', duration:'3:28', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', label:'Kegels Miss the Muscle by 2.5 Inches',
-    headline:'Kegels Miss the Muscle by 2.5 Inches',
-    description:'Kegels miss the bulbocavernosus by 2.5 inches — a urologist just explained on podcast why every rep you\'ve ever done missed the muscle that actually controls your erections.',
-    primaryText:KEGELS_2_5 },
-  { n:'02', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'long', duration:'3:24', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', label:'Six Months of Kegels. Wrong Muscle.',
-    headline:'Six Months of Kegels. Wrong Muscle.',
-    description:'I did kegels every day for six months. Then I found out I was squeezing the completely wrong muscle the entire time.',
-    primaryText:SIX_MONTHS },
-  { n:'03', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:31', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', label:'The Muscle Group Most Men Never Train',
-    headline:'The Muscle Group Most Men Never Train',
-    description:'Train the muscles you usually skip — a pelvic floor training device built for the muscle group your normal routine ignores.',
-    primaryText:UNTRAINED_MUSCLE },
-  { n:'04', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'long', duration:'3:22', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', label:'Six Months of Kegels (variant 2)',
-    headline:'Doing Kegels for ED? Wrong Muscle.',
-    description:'Men doing kegels for ED are training the wrong muscle — the one that actually controls erections sits three inches deeper and kegels physically can\'t reach it.',
-    primaryText:SIX_MONTHS },
-  { n:'05', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:05', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', label:'Kegels for ED Is the Wrong Advice',
-    headline:'Kegels for ED Is the Wrong Advice',
-    description:'Men have been doing kegels for ED for decades — a urologist explains why it has never once fixed the root cause and what actually reaches it.',
-    primaryText:KEGELS_WRONG_ADVICE },
-  { n:'06', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:29', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', label:'Recovery Plan Left Out 1 Muscle',
-    headline:'Recovery Plan Left Out 1 Muscle',
-    description:'Men who never recover their erections after prostate surgery aren\'t failing their recovery — their recovery plan left out the one muscle that determines whether they get it back.',
-    primaryText:POST_PROSTATE },
-  { n:'07', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:30', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', label:'Post-Prostate (advertorial variant)',
-    headline:'Prostate Surgery Recovery Missed 1 Muscle',
-    description:'Men who never recover their erections after prostate surgery aren\'t failing their recovery — their recovery plan failed them.',
-    primaryText:POST_PROSTATE },
-  { n:'08', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:06', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', label:'Your Doctor Said Stress. Half the Answer.',
-    headline:'Your Doctor Said It Was Stress.',
-    description:'Your Doctor Said It Was Stress. That\'s Not Wrong. But It\'s Not The Whole Answer Either.',
-    primaryText:STRESS },
-  { n:'09', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:07', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', label:'Your Doctor Blamed Your Age. Wrong.',
-    headline:'Your Doctor Blamed Your Age. Wrong.',
-    description:'Your Doctor Blamed Your Age. That Was The Wrong Answer. Here\'s What\'s Actually Causing Your ED.',
-    primaryText:AGE },
-  { n:'10', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:06', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', label:'Stress is incomplete (listicle variant)',
-    headline:'Your Doctor Said Stress. Half the Answer.',
-    description:'Your Doctor Said It Was Stress. That\'s Not Wrong. But It\'s Not The Whole Answer Either.',
-    primaryText:STRESS },
-  { n:'11', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'0:51', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', label:'10,000 Men Already Fixed Their ED',
-    headline:'10,000 Men Already Fixed Their ED',
-    description:'10,000 Men Already Fixed Their ED. Most Doctors Still Don\'t Know How.',
-    primaryText:TEN_K },
-  { n:'12', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:13', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', label:'Two Prescriptions in Three Years',
-    headline:'Two Prescriptions in Three Years',
-    description:'My doctor kept raising the dose. Then a 1 AM rabbit hole changed everything.',
-    primaryText:SECOND_RX },
-  { n:'13', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:05', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', label:'Kegels Wrong Advice (variant 2)',
-    headline:'The Most Confidently Wrong ED Advice',
-    description:'Men have been doing kegels for ED for decades — a urologist explains why it has never once fixed the root cause and what actually reaches it.',
-    primaryText:KEGELS_WRONG_ADVICE },
-  { n:'14', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:27', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', label:'Nobody Ever Taught You This',
-    headline:'Nobody Ever Taught You This',
-    description:'Nobody Ever Taught Men How Erections Actually Work. That Gap In Your Education Is Why Nothing Has Fixed Your ED.',
-    primaryText:NOBODY_TAUGHT },
-  { n:'15', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:16', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', label:'Doctor Gave You Half the Answer',
-    headline:'Doctor Gave You Half the Answer',
-    description:'Your Doctor Gave You Half The Answer. Here\'s The Half That Actually Fixes ED.',
-    primaryText:HALF_ANSWER },
-  { n:'16', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:05', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', label:'Kegels Wrong Advice (advertorial variant)',
-    headline:'Kegels for ED — Wrong Muscle',
-    description:'Men have been doing kegels for ED for decades — a urologist explains why it has never once fixed the root cause and what actually reaches it.',
-    primaryText:KEGELS_WRONG_ADVICE },
-  { n:'17', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:32', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', label:'Post-Prostate (variant 3)',
-    headline:'Recovery Plan Missed the Muscle',
-    description:'Men who never recover their erections after prostate surgery aren\'t failing their recovery — their recovery plan left out the one muscle that determines whether they get it back.',
-    primaryText:POST_PROSTATE },
-  { n:'18', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:32', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', label:'Post-Prostate (variant 4)',
-    headline:'After Prostate Surgery: Missed Muscle',
-    description:'Standard recovery monitors nerves and blood delivery. Nobody trains the retention muscle. This does.',
-    primaryText:POST_PROSTATE },
-  { n:'19', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:08', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29', label:'Your Doctor Blamed Your Age (variant)',
-    headline:'Your Doctor Blamed Your Age. Wrong.',
-    description:'Your Doctor Blamed Your Age. That Was The Wrong Answer. Here\'s What\'s Actually Causing Your ED.',
-    primaryText:AGE },
-  { n:'20', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'4:17', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18', label:'ED Pill Worked. Now Barely Does.',
-    headline:'ED Pill Worked. Now It Barely Does.',
-    description:'You\'ve been on ED pills for years and nobody told you they were making the root cause worse the entire time — a urologist explains what your prescription has been hiding.',
-    primaryText:ED_PILL_STOPPED },
+  { n:'01', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'long', duration:'3:28', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29',
+    headline:"Kegels miss the bulbocavernosus by 2.5 inches — a urologist just explained on podcast why every rep you've ever done missed the muscle that actually controls your erections.",
+    primaryText:PT_KEGELS_2_5 },
+  { n:'02', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'long', duration:'3:24', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18',
+    headline:null,
+    primaryText:PT_SIX_MONTHS },
+  { n:'03', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:31', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18',
+    headline:null,
+    primaryText:PT_UNTRAINED_MUSCLE },
+  { n:'04', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'long', duration:'3:22', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18',
+    headline:"Men doing kegels for ED are training the wrong muscle — the one that actually controls erections sits three inches deeper and kegels physically can't reach it.",
+    primaryText:PT_SIX_MONTHS },
+  { n:'05', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:05', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18',
+    headline:"Men have been doing kegels for ED for decades — a urologist explains why it has never once fixed the root cause and what actually reaches it.",
+    primaryText:PT_KEGELS_WRONG_ADVICE },
+  { n:'06', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:29', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18',
+    headline:null,
+    primaryText:PT_POST_PROSTATE },
+  { n:'07', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:30', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29',
+    headline:null,
+    primaryText:PT_POST_PROSTATE },
+  { n:'08', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:06', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29',
+    headline:null,
+    primaryText:PT_STRESS },
+  { n:'09', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:07', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29',
+    headline:"Your Doctor Blamed Your Age. That Was The Wrong Answer. Here's What's Actually Causing Your ED.",
+    primaryText:PT_AGE },
+  { n:'10', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:06', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18',
+    headline:"Your Doctor Said It Was Stress. That's Not Wrong. But It's Not The Whole Answer Either.",
+    primaryText:PT_STRESS },
+  { n:'11', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'0:51', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18',
+    headline:"10,000 Men Already Fixed Their ED. Most Doctors Still Don't Know How.",
+    primaryText:PT_TEN_K },
+  { n:'12', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:13', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18',
+    headline:null,
+    primaryText:PT_SECOND_RX },
+  { n:'13', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:05', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18',
+    headline:"Men have been doing kegels for ED for decades — a urologist explains why it has never once fixed the root cause and what actually reaches it.",
+    primaryText:PT_KEGELS_WRONG_ADVICE },
+  { n:'14', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:27', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29',
+    headline:"Nobody Ever Taught Men How Erections Actually Work. That Gap In Your Education Is Why Nothing Has Fixed Your ED.",
+    primaryText:PT_NOBODY_TAUGHT },
+  { n:'15', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:16', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29',
+    headline:"Your Doctor Gave You Half The Answer. Here's The Half That Actually Fixes ED.",
+    primaryText:PT_HALF_ANSWER },
+  { n:'16', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:05', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29',
+    headline:"Men have been doing kegels for ED for decades — a urologist explains why it has never once fixed the root cause and what actually reaches it.",
+    primaryText:PT_KEGELS_WRONG_ADVICE },
+  { n:'17', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'3:32', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29',
+    headline:"Men who never recover their erections after prostate surgery aren't failing their recovery — their recovery plan left out the one muscle that determines whether they get it back.",
+    primaryText:PT_POST_PROSTATE },
+  { n:'18', doctor:'ashford', persona:'Dr. Michael Ashford, MD', kind:'short', duration:'1:08', landing:'advertorial', landingUrl:'https://tryrevivehealth.com/pages/advertorial-page-jan-19-11-08-29',
+    headline:"Your Doctor Blamed Your Age. That Was The Wrong Answer. Here's What's Actually Causing Your ED.",
+    primaryText:PT_AGE },
+  { n:'19', doctor:'iansmith', persona:'Dr. Ian Smith, MD', kind:'long', duration:'4:17', landing:'listicle', landingUrl:'https://tryrevivehealth.com/pages/listicle-page-jan-21-11-50-18',
+    headline:"You've been on ED pills for years and nobody told you they were making the root cause worse the entire time — a urologist explains what your prescription has been hiding",
+    primaryText:PT_ED_PILL_STOPPED },
 ];
 
 const grid = document.getElementById('grid');
@@ -592,6 +1083,17 @@ ADS.forEach((ad, idx) => {
   card.dataset.doctor = ad.doctor;
   card.dataset.kind = ad.kind;
   card.dataset.landing = ad.landing;
+
+  const headlineHtml = ad.headline
+    ? `<div class="field headline">
+         <div class="field-label">Headline <button class="copy-btn" data-copy-target="h${idx}">Copy</button></div>
+         <div class="field-value" id="h${idx}">${escapeHtml(ad.headline)}</div>
+       </div>`
+    : `<div class="field headline no-headline">
+         <div class="field-label">Headline</div>
+         <div class="field-value">(no headline shown in Meta Ad Library for this variant)</div>
+       </div>`;
+
   card.innerHTML = `
     <div class="num">#${ad.n}</div>
     <div class="media" data-n="${ad.n}">
@@ -607,20 +1109,12 @@ ADS.forEach((ad, idx) => {
         <span class="badge meta-info">→ /${ad.landing}-page</span>
       </div>
 
-      <div class="field headline">
-        <div class="field-label">Headline <button class="copy-btn" data-copy-target="h${idx}">Copy</button></div>
-        <div class="field-value" id="h${idx}">${escapeHtml(ad.headline)}</div>
-      </div>
+      ${headlineHtml}
 
       <div class="field primary-text">
         <div class="field-label">Primary Text <button class="copy-btn" data-copy-target="p${idx}">Copy</button></div>
         <div class="field-value" id="p${idx}">${ad.primaryText.split('\n\n').map(p => `<p style="margin:0 0 10px">${escapeHtml(p).replace(/\n/g,'<br>')}</p>`).join('')}</div>
         <button class="copy-toggle">Expand ↓</button>
-      </div>
-
-      <div class="field description">
-        <div class="field-label">Description <button class="copy-btn" data-copy-target="d${idx}">Copy</button></div>
-        <div class="field-value" id="d${idx}">${escapeHtml(ad.description)}</div>
       </div>
 
       <div class="field landing">
@@ -637,7 +1131,6 @@ ADS.forEach((ad, idx) => {
   grid.appendChild(card);
 });
 
-// Video play
 document.querySelectorAll('.media').forEach(m => {
   m.addEventListener('click', () => {
     const v = m.querySelector('video');
@@ -646,7 +1139,6 @@ document.querySelectorAll('.media').forEach(m => {
   });
 });
 
-// Expand/collapse Primary Text
 document.querySelectorAll('.primary-text .copy-toggle').forEach(btn => {
   btn.addEventListener('click', () => {
     const val = btn.previousElementSibling;
@@ -655,7 +1147,6 @@ document.querySelectorAll('.primary-text .copy-toggle').forEach(btn => {
   });
 });
 
-// Copy buttons
 document.querySelectorAll('.copy-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -670,7 +1161,6 @@ document.querySelectorAll('.copy-btn').forEach(btn => {
   });
 });
 
-// Filters
 document.querySelectorAll('.filter-btn').forEach(b => {
   b.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('active'));
